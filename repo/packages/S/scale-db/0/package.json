@@ -1,9 +1,9 @@
 {
   "packagingVersion": "2.0",
   "scm": "https://github.com/ngageoint/scale.git",
-  "postInstallNotes": "The Scale DCOS Service has been successfully installed!\n\n\tDocumentation: https://ngageoint.github.io/scale/\n\tIssues: https://github.com/ngageoint/scale/issues",
+  "postInstallNotes": "The Scale DCOS DB Service has been successfully installed!\n\n\tDocumentation: https://ngageoint.github.io/scale/\n\tIssues: https://github.com/ngageoint/scale/issues",
   "maintainer": "http://www.nga.mil",
-  "name": "scale",
+  "name": "scale-db",
   "tags": [
     "bigdata",
     "batch",
@@ -14,7 +14,7 @@
   ],
   "framework": true,
   "version": "3.0.0",
-  "postUninstallNotes": "The Scale DCOS Service has been uninstalled and will no longer run.",
+  "postUninstallNotes": "The Scale DCOS DB Service has been uninstalled and will no longer run.",
   "preInstallNotes": "We recommend a minimum of three nodes with at least 2 CPU and 2GB of RAM available for the Scale Service and running Scale jobs.",
   "licenses": [
     {
