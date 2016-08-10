@@ -59,8 +59,8 @@
 				"docker-image": {
 					"description": "Docker image for GeoServer instances",
 					"type": "string",
-					"default": "appliedis/geoserver:2.8",
-					"pattern": "^(?:[a-z0-9-_\\.]*(?::[0-9]+)?\/)?(?:[a-z0-9-_])*(?::[a-z0-9\\.]+)?$"
+					"default": "appliedis/geoserver:2.8-alpine",
+					"pattern": "^(?:[a-z0-9-_\\.]*(?::[0-9]+)?\/)?(?:[a-z0-9-_])*(?::[a-z0-9-_\\.]+)?$"
 				}
 			},
 			"required": [
