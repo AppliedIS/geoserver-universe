@@ -7,7 +7,7 @@
   "assets" : {
     "container" : {
       "docker" : {
-        "27efbae7df52" : "appliedis/dcos-geoserver"
+        "ddb7f7f2434b" : "appliedis/dcos-geoserver:2.8"
       }
     }
   }
