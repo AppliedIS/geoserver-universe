@@ -1,5 +1,5 @@
 {
-	"id": "{{geoserver.framework-name}}-sync",
+	"id": "{{geoserver.framework-name}}",
 	"cpus": 0.1,
 	"mem": 8,
 	"instances": 1,
@@ -44,8 +44,14 @@
 		"HAPROXY_PORT": "{{geoserver.haproxy-port}}",
 		"POLLING_INTERVAL": "{{sync.polling-interval}}",
 		"FILE_BLACKLIST": "{{sync.file-blacklist}}"
+        {{#geoserver.auth-uri}},
+        "AUTH_URI": "{{geoserver.auth-uri}}"
+        {{/geoserver.auth-uri}}
 	},
 	"labels": {
 		"DCOS_PACKAGE_FRAMEWORK_NAME": "{{geoserver.framework-name}}"
 	}
+	{{#geoserver.auth-uri}},
+	"fetch": [{ "uri": "{{geoserver.auth-uri}}" }]
+    {{/geoserver.auth-uri}}
 }
