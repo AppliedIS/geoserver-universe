@@ -1,6 +1,5 @@
 {
-  "packagingVersion" : "3.0",
-  "minDcosReleaseVersion" : "1.7",
+  "packagingVersion" : "2.0",
   "name" : "geoserver",
   "version" : "2.8",
   "scm" : "https://github.com/appliedis/dcos-geoserver",
