@@ -43,7 +43,8 @@
 		"HAPROXY_VHOST": "{{geoserver.haproxy-vhost}}",
 		"HAPROXY_PORT": "{{geoserver.haproxy-port}}",
 		"POLLING_INTERVAL": "{{sync.polling-interval}}",
-		"FILE_BLACKLIST": "{{sync.file-blacklist}}"
+		"FILE_BLACKLIST": "{{sync.file-blacklist}}",
+        "ENABLE_CORS": "{{geoserver.enable-cors}}", 
         {{#geoserver.auth-uri}},
         "AUTH_URI": "{{geoserver.auth-uri}}"
         {{/geoserver.auth-uri}}

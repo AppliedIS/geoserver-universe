@@ -65,6 +65,11 @@
 				"auth-uri": {
 					"description": "URI to file for private Docker registry authentication",
 					"type": "string"
+				},
+				"enable-cors": {
+					"description": "CORS headers added to response (true/false)",
+					"default": false,
+					"type": "boolean"
 				}
 			},
 			"required": [
