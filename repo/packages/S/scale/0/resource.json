@@ -2,7 +2,7 @@
   "assets": {
     "container": {
       "docker": {
-         "9e1c786ae33a": "geoint/scale:3.1.0",
+         "9e1c786ae33a": "appliedis/scale",
          "95bf00b63afb": "docker.io/mdillon/postgis:latest"
       }
     }
