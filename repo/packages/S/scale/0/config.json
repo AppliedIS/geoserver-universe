@@ -100,7 +100,7 @@
         "vhost-name": {
           "type": "string",
           "description": "Virtual Hostname for Marathon-LB",
-          "default": "marathon-lb.marathon.mesos"
+          "default": "scale.appliedisdemo.com"
         },
         "zk-url-enable": {
           "default": false,
