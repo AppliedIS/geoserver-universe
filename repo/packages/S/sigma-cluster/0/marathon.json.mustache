@@ -9,14 +9,14 @@
             "image": "{{ resource.assets.container.docker.hex }}",
             "forcePullImage": true,
             "network": "HOST",
-            "volumes": [{
-                "containerPath": "data",
-                "mode": "RW",
-                "persistent": {
-                    "size": {{ master.disk_size }}
-                }
-            }]
-        }
+        },
+        "volumes": [{
+            "containerPath": "data",
+            "mode": "RW",
+            "persistent": {
+                "size": {{ master.disk_size }}
+            }
+        }]
     },
     "residency": {
         "taskLostBehavior": "WAIT_FOREVER"
