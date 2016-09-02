@@ -1,0 +1,17 @@
+{
+    "assets": {
+        "container": {
+            "docker": {
+                "hex": "appliedis/sigma:0.0.1"
+            }
+        }
+    },
+    "images": {
+        "icon-small": "url",
+        "icon-medium": "url",
+        "icon-large": "url",
+        "screenshots": [
+            "url"
+        ]
+    }
+}
