@@ -42,7 +42,7 @@
                 "count": {
                     "type": "number",
                     "description": "The number of slaves to launch",
-                    "default": 2,
+                    "default": 2
                 },
                 "cpus": {
                     "type": "number",
