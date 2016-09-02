@@ -6,7 +6,7 @@
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "{{ resources.assets.container.docker.hex }}",
+            "image": "{{ resource.assets.container.docker.hex }}",
             "forcePullImage": true,
             "network": "HOST",
             "volumes": [{
