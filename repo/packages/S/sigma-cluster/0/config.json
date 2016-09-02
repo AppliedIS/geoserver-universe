@@ -28,6 +28,11 @@
                     "description": "Amount of memory for the master",
                     "default": 1024
                 },
+                "disk_size": {
+                    "type": "number",
+                    "description": "The size allocated to the master node",
+                    "default": 5120
+                },
                 "disk_path": {
                     "type": "string",
                     "description": "The local mount point, used for MOUNT disk type",

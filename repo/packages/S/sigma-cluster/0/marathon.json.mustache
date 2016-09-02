@@ -2,6 +2,7 @@
     "id": "/{{ service.name }}",
     "cpus": {{ master.cpus }},
     "mem": {{ master.mem }},
+    "disk": {{ master.disk_size }},
     "instances": 1,
     "container": {
         "type": "DOCKER",
@@ -27,7 +28,7 @@
     },
     "env": {
         "FRAMEWORK_NAME": "{{ service.name }}",
-        "SIGMA_CONTAINER": "{{ resources.assets.container.docker.hex }}",
+        "SIGMA_CONTAINER": "{{ resource.assets.container.docker.hex }}",
         "SIGMA_SLAVES_COUNT": "{{ slaves.count }}",
         "SIGMA_SLAVES_CPU": "{{ slaves.cpus }}",
         "SIGMA_SLAVES_MEMORY": "{{ slaves.mem }}",
