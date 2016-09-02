@@ -1,7 +1,7 @@
 {
-    "id": "/{{ sigma-cluster.framework-name }}",
-    "cpus": 0.1,
-    "mem": 64.0,
+    "id": "/{{ service.name }}",
+    "cpus": {{ master.cpus }},
+    "mem": {{ master.mem }},
     "instances": 1,
     "container": {
         "type": "DOCKER",
@@ -11,35 +11,28 @@
             "network": "HOST",
             "volumes": [{
                 "containerPath": "/data",
-                "hostPath": "/mnt/data/sigma",
+                "hostPath": "{{ master.disk_path }}",
                 "mode": "RW"
-            }],
-            "portMappings": [{
-                "hostPort": 80,
-                "containerPort": 80,
-                "protocol": "tcp"
             }]
         }
     },
     "cmd": [
         "manage.py master start"
     ],
-    "acceptedResourceRoles": ["slave_public"],
+    "uri": [
+        "file:///shared/.dockercfg"
+    ],
+    "acceptedResourceRoles": ["slave_private"],
     "constraints": [["hostname", "UNIQUE"]],
-    "healthCheckes": [{
-        "path": "/test",
-        "protocol": "HTTP",
-        "portIndex": 0,
-        "gracePeriodSeconds": 600,
-        "intervalSeconds": 30,
-        "timeoutSeconds": 20,
-        "maxConsecutiveFailures": 3,
-        "ignoreHttp1xx": false
-    }],
     "labels": {
-        "DCOS_PACKAGE_FRAMEWORK_NAME": "{{ sigma-cluster.framework-name }}",
+        "DCOS_PACKAGE_FRAMEWORK_NAME": "{{ service.name }}"
     },
     "env": {
-        "SIGMA_ZK_URL": "{{ sigma-cluster.zk-url }}"
+        "FRAMEWORK_NAME": "{{ service.name }}",
+        "SIGMA_CONTAINER": "{{ resources.assets.container.docker.hex }}",
+        "SIGMA_SLAVES_COUNT": "{{ slaves.count }}",
+        "SIGMA_SLAVES_CPU": "{{ slaves.cpus }}",
+        "SIGMA_SLAVES_MEMORY": "{{ slaves.mem }}",
+        "SIGMA_SLAVES_DISK": "{{ slaves.disk_path }}"
     }
 }

@@ -1,25 +1,65 @@
 {
     "properties": {
-        "sigma-cluster": {
+        "service": {
+            "type": "object",
+            "description": "DC/OS service configuration properties",
             "properties": {
-                "framework-name": {
+                "name": {
                     "type": "string",
                     "description": "The name of the cluster",
                     "default": "sigma-cluster"
-                },
-                "master": {
-                    "type": "string",
-                    "description": "Mesos Master",
-                    "default": "zk://master.mesos:2181/mesos"
-                },
-                "zk-url": {
-                    "type": "string",
-                    "description": "Zookeeper URL",
-                    "default": "zk://master.mesos:2181/sigma-cluster"
                 }
             },
-            "required": ["framework-name"],
-            "type": "object"
+            "required": [
+                "name"
+            ]
+        },
+        "master": {
+            "type": "object",
+            "description": "configuration properties for the master node",
+            "properties": {
+                "cpus": {
+                    "type": "number",
+                    "description": "Number of CPU resources for the master",
+                    "default": 2
+                },
+                "mem": {
+                    "type": "number",
+                    "description": "Amount of memory for the master",
+                    "default": 1024
+                },
+                "disk_path": {
+                    "type": "string",
+                    "description": "The local mount point, used for MOUNT disk type",
+                    "default": "/srv/sigma_cluster"
+                }
+            }
+        },
+        "slaves": {
+            "type": "object",
+            "description": "Configuration properties for the slave nodes",
+            "properties": {
+                "count": {
+                    "type": "number",
+                    "description": "The number of slaves to launch",
+                    "default": 2,
+                },
+                "cpus": {
+                    "type": "number",
+                    "description": "Number of CPU resources for each slave",
+                    "default": 1
+                },
+                "mem": {
+                    "type": "number",
+                    "description": "Amount of memory for each slave",
+                    "default": 1024
+                },
+                "disk_path": {
+                    "type": "string",
+                    "description": "The local mount point, used for MOUNT disk type",
+                    "default": "/srv/sigma_cluster"
+                }
+            }
         }
     },
     "type": "object"

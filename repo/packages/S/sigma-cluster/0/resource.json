@@ -2,7 +2,7 @@
     "assets": {
         "container": {
             "docker": {
-                "hex": "appliedis/sigma:0.0.1"
+                "hex": "appliedis/sigma-experiments:latest"
             }
         }
     },
