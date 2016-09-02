@@ -30,13 +30,8 @@
                 },
                 "disk_size": {
                     "type": "number",
-                    "description": "The size allocated to the master node",
+                    "description": "The size allocated to the master node, in MB",
                     "default": 5120
-                },
-                "disk_path": {
-                    "type": "string",
-                    "description": "The local mount point, used for MOUNT disk type",
-                    "default": "/srv/sigma_cluster"
                 }
             }
         },
