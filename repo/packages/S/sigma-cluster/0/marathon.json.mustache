@@ -25,7 +25,7 @@
     "uri": [
         "file:///shared/.dockercfg"
     ],
-    "acceptedResourceRoles": ["slave_private"],
+    "acceptedResourceRoles": ["*"],
     "constraints": [["hostname", "UNIQUE"]],
     "labels": {
         "DCOS_PACKAGE_FRAMEWORK_NAME": "{{ service.name }}"
