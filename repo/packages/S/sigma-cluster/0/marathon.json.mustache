@@ -2,7 +2,6 @@
     "id": "/{{ service.name }}",
     "cpus": {{ master.cpus }},
     "mem": {{ master.mem }},
-    "disk": {{ master.disk_size }},
     "instances": 1,
     "container": {
         "type": "DOCKER",
@@ -11,11 +10,16 @@
             "forcePullImage": true,
             "network": "HOST",
             "volumes": [{
-                "containerPath": "/data",
-                "hostPath": "{{ master.disk_path }}",
-                "mode": "RW"
+                "containerPath": "data",
+                "mode": "RW",
+                "persistent": {
+                    "size": {{ master.disk_size }}
+                }
             }]
         }
+    },
+    "residency": {
+        "taskLostBehavior": "WAIT_FOREVER"
     },
     "cmd": "manage.py master start",
     "uri": [
