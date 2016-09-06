@@ -21,7 +21,7 @@
     "residency": {
         "taskLostBehavior": "WAIT_FOREVER"
     },
-    "cmd": "python manage.py master start",
+    "cmd": "python manage.py master start && tail -f /dev/null",
     "uri": [
         "file:///shared/.dockercfg"
     ],
