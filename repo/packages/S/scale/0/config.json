@@ -60,7 +60,7 @@
         "elasticsearch-url": {
           "type": "string",
           "description": "URL for the elasticsearch server",
-          "default": "http://elasticsearch.marathon.mesos:31105"
+          "default": ""
         },
         "init-db": {
           "type": "string",
