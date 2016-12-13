@@ -2,6 +2,24 @@
   "packages":[
     {
       "currentVersion":"0.0.1",
+      "description":"API service for Sigma",
+      "framework":true,
+      "name":"sigma",
+      "selected":false,
+      "tags":[
+        "bigdata",
+        "hadoop",
+        "hdfs",
+        "hbase",
+        "phoenix",
+        "spark"
+      ],
+      "versions":{
+        "0.0.1":"0"
+      }
+    },
+    {
+      "currentVersion":"0.0.1",
       "description":"Cluster backend for Sigma",
       "framework":true,
       "name":"sigma-cluster",

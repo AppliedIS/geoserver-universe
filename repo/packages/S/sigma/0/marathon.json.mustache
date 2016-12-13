@@ -1,0 +1,41 @@
+{
+    "id": "/{{ sigma.name }}",
+    "cpus": {{ sigma.cpus }},
+    "mem": {{ sigma.mem }},
+    "instances": 1,
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "{{ resource.assets.container.docker.sigma }}",
+            "forcePullImage": true,
+            "network": "HOST"
+        }
+    },
+    "constraints": [["hostname", "UNIQUE"]],
+    "healthChecks": [{
+        "protocol": "HTTP",
+        "path": "/api/health",
+        "portIndex": 0,
+        "gracePeriodSeconds": 300,
+        "intervalSeconds": 30,
+        "timeoutSeconds": 20,
+        "maxConsecutiveFailures": 3,
+        "ignoreHttp1xx": false
+    }],
+    "labels": {
+        "DCOS_PACKAGE_FRAMEWORK_NAME": "{{ sigma.name }}"
+    },
+    "env": {
+        "FRAMEWORK_NAME": "{{ sigma.name }}"
+    },
+    "portDefinitions": [{
+        "port": 80,
+        "name": "sigma"
+    }],
+    "requirePorts": true
+    {{ #sigma.docker-credentials }},
+    "uris": [
+        "{{ sigma.docker-credentials }}"
+    ]
+    {{ /sigma.docker-credentials }}
+}
