@@ -14,6 +14,10 @@
                     "description": "The name of the cluster",
                     "default": "sigma"
                 },
+                "docker-image": {
+                    "type": "string",
+                    "description": "The repo and image to pull"
+                },
                 "docker-credentials": {
                     "type": "string",
                     "description": "URI to .dockercfg file with Docker credentials"

@@ -2,7 +2,7 @@
     "assets": {
         "container": {
             "docker": {
-                "sigma": "mheppner/sigma"
+                "sigma": "appliedis/sigma"
             }
         }
     },
