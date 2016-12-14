@@ -6,7 +6,12 @@
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "{{ resource.assets.container.docker.sigma }}",
+            {{ #sigma.docker-image }}
+                "image": "{{ sigma.docker-image }}",
+            {{ /sigma.docker-image }}
+            {{ ^sigma.docker-image }}
+                "image": "{{ resource.assets.container.docker.sigma }}",
+            {{ /sigma.docker-image }}
             "forcePullImage": true,
             "network": "BRIDGE",
             "portMappings": [
