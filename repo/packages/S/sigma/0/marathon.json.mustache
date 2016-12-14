@@ -32,7 +32,22 @@
         "DCOS_PACKAGE_FRAMEWORK_NAME": "{{ sigma.name }}"
     },
     "env": {
-        "FRAMEWORK_NAME": "{{ sigma.name }}"
+        "FRAMEWORK_NAME": "{{ sigma.name }}",
+        "SECRET_KEY": "{{ django.secret_key }}",
+        "DEBUG": "{{ django.debug }}",
+        "ALLOWED_HOSTS": "{{ django.allowed_hosts }}",
+        "INTERNAL_IPS": "{{ django.internal_ips }}",
+        "CORS_ORIGIN_WHITELIST": "{{ django.cors_origin_whitelist }}",
+        "SESSION_COOKIE_NAME": "{{ django.session_cookie_name }}",
+        "UWSGI_NUM_PROCESSES": "{{ deployment.uwsgi_num_processes }}",
+        "MEMCACHED_MAX_SIZE": "{{ deployment.memcached_max_size }}",
+        "MEMCACHED_MAX_ITEM_SIZE": "{{ deployment.memcached_max_item_size }}",
+        "PHOENIXDB_CONNECTION": "{{ services.phoenixdb_connection }}",
+        "PHOENIXDB_TABLE": "{{ services.phoenixdb_table }}",
+        "LIVY_URL": "{{ services.livy_url }}",
+        "LIVY_NUM_EXECUTORS": "{{ services.livy_num_executors }}",
+        "LIVY_EXECUTOR_CORES": "{{ services.livy_executor_cores }}",
+        "LIVY_DRIVER_CORES": "{{ services.livy_driver_cores }}"
     }
     {{ #sigma.docker-credentials }},
     "uris": [
