@@ -8,7 +8,13 @@
         "docker": {
             "image": "{{ resource.assets.container.docker.sigma }}",
             "forcePullImage": true,
-            "network": "HOST"
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 0
+                }
+            ]
         }
     },
     "constraints": [["hostname", "UNIQUE"]],
@@ -27,12 +33,7 @@
     },
     "env": {
         "FRAMEWORK_NAME": "{{ sigma.name }}"
-    },
-    "portDefinitions": [{
-        "port": 80,
-        "name": "sigma"
-    }],
-    "requirePorts": true
+    }
     {{ #sigma.docker-credentials }},
     "uris": [
         "{{ sigma.docker-credentials }}"
