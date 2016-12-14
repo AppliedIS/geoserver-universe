@@ -50,20 +50,33 @@
                 "allowed_hosts": {
                     "type": "string",
                     "description": "A comma-separated list of ALLOWED_HOSTS that can be served, used to protect against HTTP host header attacks",
-                    "default": "localhost"
+                    "default": "0.0.0.0,127.0.0.1,localhost"
                 },
                 "internal_ips": {
                     "type": "string",
                     "description": "A comma-separated list of INTERNAL_IPS, only useful when DEBUG=True"
                 },
+                "cors_original_allow_all": {
+                    "type": "boolean",
+                    "description": "Whether or not to allow all hosts to make cross-original HTTP requests",
+                    "default": false
+                },
                 "cors_origin_whitelist": {
                     "type": "string",
-                    "description": "A comma-separated list of hosts allowed to make corss-site HTTP requests",
+                    "description": "A comma-separated list of hosts allowed to make cross-site HTTP requests (ignored with allow_all is enabled)",
                     "default": "localhost"
                 },
                 "session_cookie_name": {
                     "type": "string",
                     "description": "The name of the cookie used for sessions"
+                },
+                "logs_dir": {
+                    "type": "string",
+                    "description": "The path to the logs directory"
+                },
+                "media_root": {
+                    "type": "string",
+                    "description": "The path to the media directory"
                 }
             }
         },
