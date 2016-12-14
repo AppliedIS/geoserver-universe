@@ -37,10 +37,17 @@
         "DEBUG": "{{ django.debug }}",
         "ALLOWED_HOSTS": "{{ django.allowed_hosts }}",
         "INTERNAL_IPS": "{{ django.internal_ips }}",
+        "CORS_ORIGIN_ALLOW_ALL": "{{ django.cors_original_allow_all }}",
         "CORS_ORIGIN_WHITELIST": "{{ django.cors_origin_whitelist }}",
         {{ #django.session_cookie_name }}
             "SESSION_COOKIE_NAME": "{{ django.session_cookie_name }}",
         {{ /django.session_cookie_name }}
+        {{ #django.logs_dir }}
+            "LOGS_DIR": "{{ django.logs_dir }}",
+        {{ /django.logs_dir }}
+        {{ #django.media_root }}
+            "MEDIA_ROOT": "{{ django.media_root }}",
+        {{ /django.media_root }}
         "UWSGI_NUM_PROCESSES": "{{ deployment.uwsgi_num_processes }}",
         "MEMCACHED_MAX_SIZE": "{{ deployment.memcached_max_size }}",
         "MEMCACHED_MAX_ITEM_SIZE": "{{ deployment.memcached_max_item_size }}",
