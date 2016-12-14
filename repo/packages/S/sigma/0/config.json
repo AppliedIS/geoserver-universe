@@ -4,7 +4,9 @@
             "type": "object",
             "description": "DC/OS service configuration properties",
             "required": [
-                "name"
+                "name",
+                "cpus",
+                "mem"
             ],
             "properties": {
                 "name": {
@@ -19,12 +21,12 @@
                 "cpus": {
                     "type": "number",
                     "description": "Number of CPU resources for each slave",
-                    "default": 1
+                    "default": 0.2
                 },
                 "mem": {
                     "type": "number",
                     "description": "Amount of memory for each slave",
-                    "default": 1024
+                    "default": 2048
                 }
             }
         },
@@ -32,7 +34,8 @@
             "type": "object",
             "description": "Configuration for the Django app",
             "required": [
-                "secret_key"
+                "secret_key",
+                "allowed_hosts"
             ],
             "properties": {
                 "debug": {
@@ -60,14 +63,18 @@
                 },
                 "session_cookie_name": {
                     "type": "string",
-                    "description": "The name of the cookie used for sessions",
-                    "default": "sigma_session"
+                    "description": "The name of the cookie used for sessions"
                 }
             }
         },
         "deployment": {
             "type": "object",
             "description": "Configuration for the app deployment",
+            "required": [
+                "uwsgi_num_processes",
+                "memcached_max_size",
+                "memcached_max_item_size"
+            ],
             "properties": {
                 "uwsgi_num_processes": {
                     "type": "number",
@@ -90,7 +97,9 @@
             "type": "object",
             "description": "Services used by the app",
             "required": [
-                "phoenixdb_connection"
+                "phoenixdb_connection",
+                "phoenixdb_table",
+                "livy_url"
             ],
             "properties": {
                 "phoenixdb_connection": {
