@@ -1,6 +1,5 @@
 {
     "properties": {
-        "type": "object",
         "sigma": {
             "type": "object",
             "description": "DC/OS service configuration properties",
@@ -29,5 +28,6 @@
                 }
             }
         }
-    }
+    },
+    "type": "object"
 }
