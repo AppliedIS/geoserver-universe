@@ -1,8 +1,12 @@
 {
     "properties": {
+        "type": "object",
         "sigma": {
             "type": "object",
             "description": "DC/OS service configuration properties",
+            "required": [
+                "name"
+            ],
             "properties": {
                 "name": {
                     "type": "string",
@@ -23,11 +27,7 @@
                     "description": "Amount of memory for each slave",
                     "default": 1024
                 }
-            },
-            "required": [
-                "name"
-            ]
+            }
         }
-    },
-    "type": "object"
+    }
 }
