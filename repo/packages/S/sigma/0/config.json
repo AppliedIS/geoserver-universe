@@ -57,8 +57,7 @@
                 },
                 "allowed_hosts": {
                     "type": "string",
-                    "description": "A comma-separated list of ALLOWED_HOSTS that can be served, used to protect against HTTP host header attacks",
-                    "default": "0.0.0.0,127.0.0.1,localhost"
+                    "description": "A comma-separated list of ALLOWED_HOSTS that can be served, used to protect against HTTP host header attacks (set to * to disable)"
                 },
                 "internal_ips": {
                     "type": "string",
