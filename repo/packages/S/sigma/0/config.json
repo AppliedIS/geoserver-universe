@@ -31,6 +31,10 @@
                     "type": "number",
                     "description": "Amount of memory for each slave",
                     "default": 2048
+                },
+                "media-root": {
+                    "type": "string",
+                    "description": "The external path for saving media files to (this should be writable by the Livy server)"
                 }
             }
         },

@@ -19,6 +19,15 @@
                     "containerPort": 80,
                     "hostPort": 0
                 }
+            ],
+            "volumes": [
+                {{ sigma.media-root }}
+                {
+                    "containerPath": "/opt/sigma/public/media",
+                    "hostPath": "{{ sigma.media-root }}",
+                    "mode": "RW"
+                }
+                {{ /sigma.media-root }}
             ]
         }
     },
