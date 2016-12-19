@@ -1,0 +1,114 @@
+{
+    "properties": {
+        "sigma-ui": {
+            "type": "object",
+            "description": "DC/OS service configuration properties",
+            "required": [
+                "name",
+                "cpus",
+                "mem"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the cluster",
+                    "default": "sigma-ui"
+                },
+                "docker-image": {
+                    "type": "string",
+                    "description": "The repo and image to pull"
+                },
+                "docker-credentials": {
+                    "type": "string",
+                    "description": "URI to .dockercfg file with Docker credentials"
+                },
+                "cpus": {
+                    "type": "number",
+                    "description": "Number of CPU resources for each slave",
+                    "default": 0.2
+                },
+                "mem": {
+                    "type": "number",
+                    "description": "Amount of memory for each slave",
+                    "default": 2048
+                }
+            }
+        },
+        "django": {
+            "type": "object",
+            "description": "Configuration for the Django app",
+            "required": [
+                "secret_key",
+                "allowed_hosts"
+            ],
+            "properties": {
+                "debug": {
+                    "type": "boolean",
+                    "description": "Whether or not to run in DEBUG mode",
+                    "default": false
+                },
+                "secret_key": {
+                    "type": "string",
+                    "description": "The super SECRET_KEY used to sign sessions and validate passwords"
+                },
+                "allowed_hosts": {
+                    "type": "string",
+                    "description": "A comma-separated list of ALLOWED_HOSTS that can be served, used to protect against HTTP host header attacks (set to * to disable)"
+                },
+                "internal_ips": {
+                    "type": "string",
+                    "description": "A comma-separated list of INTERNAL_IPS, only useful when DEBUG=True"
+                },
+                "cors_original_allow_all": {
+                    "type": "boolean",
+                    "description": "Whether or not to allow all hosts to make cross-original HTTP requests",
+                    "default": false
+                },
+                "cors_origin_whitelist": {
+                    "type": "string",
+                    "description": "A comma-separated list of hosts allowed to make cross-site HTTP requests (ignored with allow_all is enabled)",
+                    "default": "localhost"
+                },
+                "session_cookie_name": {
+                    "type": "string",
+                    "description": "The name of the cookie used for sessions"
+                },
+                "logs_dir": {
+                    "type": "string",
+                    "description": "The path to the logs directory"
+                },
+                "media_root": {
+                    "type": "string",
+                    "description": "The path to the media directory"
+                }
+            }
+        },
+        "deployment": {
+            "type": "object",
+            "description": "Configuration for the app deployment",
+            "required": [
+                "uwsgi_num_processes",
+                "memcached_max_size",
+                "memcached_max_item_size"
+            ],
+            "properties": {
+                "uwsgi_num_processes": {
+                    "type": "number",
+                    "description": "Number of processes used by uWSGI",
+                    "default": 4
+                },
+                "memcached_max_size": {
+                    "type": "number",
+                    "description": "Maximum total size (in MB) used by memcached",
+                    "default": 1024
+                },
+                "memcached_max_item_size": {
+                    "type": "string",
+                    "description": "Maximum size used per cache entry in memcached (in string units)",
+                    "default": "1m"
+                }
+            }
+        }
+    },
+    "type": "object"
+}
