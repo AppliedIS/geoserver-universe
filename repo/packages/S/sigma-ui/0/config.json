@@ -37,28 +37,8 @@
         "deployment": {
             "type": "object",
             "description": "Configuration for the app deployment",
-            "required": [
-                "uwsgi_num_processes",
-                "memcached_max_size",
-                "memcached_max_item_size"
-            ],
-            "properties": {
-                "uwsgi_num_processes": {
-                    "type": "number",
-                    "description": "Number of processes used by uWSGI",
-                    "default": 4
-                },
-                "memcached_max_size": {
-                    "type": "number",
-                    "description": "Maximum total size (in MB) used by memcached",
-                    "default": 1024
-                },
-                "memcached_max_item_size": {
-                    "type": "string",
-                    "description": "Maximum size used per cache entry in memcached (in string units)",
-                    "default": "1m"
-                }
-            }
+            "required": [],
+            "properties": {}
         }
     },
     "type": "object"
