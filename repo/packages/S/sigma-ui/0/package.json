@@ -2,7 +2,7 @@
     "name": "sigma-ui",
     "description": "User Interface for the Sigma application",
     "maintainer": "NGA Research, Applied Information Sciences",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "packagingVersion": "2.0",
     "scm": "https://github.com/appliedis/sigma-ui.git",
     "postInstallNotes": "Sigma-UI has now been installed",
