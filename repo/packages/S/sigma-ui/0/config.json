@@ -1,0 +1,43 @@
+{
+    "properties": {
+        "sigma-ui": {
+            "type": "object",
+            "description": "DC/OS service configuration properties",
+            "required": [
+                "name",
+                "cpus",
+                "mem"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the cluster",
+                    "default": "sigma-ui"
+                },
+                "docker-image": {
+                    "type": "string",
+                    "description": "The repo and image to pull"
+                },
+                "docker-credentials": {
+                    "type": "string",
+                    "description": "URI to .dockercfg file with Docker credentials"
+                },
+                "cpus": {
+                    "type": "number",
+                    "description": "Number of CPU resources for each slave",
+                    "default": 1.0
+                },
+                "mem": {
+                    "type": "number",
+                    "description": "Amount of memory for each slave",
+                    "default": 2048
+                }
+            }
+        },
+        "deployment": {
+            "type": "object",
+            "description": "Configuration for the app deployment"
+        }
+    },
+    "type": "object"
+}
