@@ -36,9 +36,7 @@
         },
         "deployment": {
             "type": "object",
-            "description": "Configuration for the app deployment",
-            "required": [],
-            "properties": {}
+            "description": "Configuration for the app deployment"
         }
     },
     "type": "object"
