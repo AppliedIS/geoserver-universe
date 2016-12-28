@@ -3,8 +3,7 @@
     "description": "User Interface for the Sigma application",
     "maintainer": "NGA Research, Applied Information Sciences",
     "version": "1.0.0",
-    "packagingVersion": "3.0",
-    "minDcosReleaseVersion": "1.7",
+    "packagingVersion": "2.0",
     "scm": "https://github.com/appliedis/sigma-ui.git",
     "postInstallNotes": "Sigma-UI has now been installed",
     "postUninstallNotes": "Sigma-UI has been uninstalled",
@@ -16,6 +15,6 @@
         "phoenix",
         "spark"
     ],
-    "framework": true,
+    "framework": false,
     "selected": false
 }

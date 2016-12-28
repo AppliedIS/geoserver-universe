@@ -33,10 +33,6 @@
                     "default": 2048
                 }
             }
-        },
-        "deployment": {
-            "type": "object",
-            "description": "Configuration for the app deployment"
         }
     },
     "type": "object"

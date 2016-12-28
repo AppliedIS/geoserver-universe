@@ -6,17 +6,12 @@
     "container": {
         "type": "DOCKER",
         "docker": {
-            {{ #sigma-ui.docker-image }}
-                "image": "{{ sigma-ui.docker-image }}",
-            {{ /sigma-ui.docker-image }}
-            {{ ^sigma-ui.docker-image }}
-                "image": "{{ resource.assets.container.docker.sigma-ui }}",
-            {{ /sigma-ui.docker-image }}
+            "image": "appliedis/sigma-ui",
             "forcePullImage": true,
             "network": "BRIDGE",
             "portMappings": [
                 {
-                    "containerPort": 80,
+                    "containerPort": 3000,
                     "hostPort": 0
                 }
             ]
@@ -38,6 +33,7 @@
         "HAPROXY_0_VHOST": "{{ sigma-ui.name }}"
     },
     "env": {
+        "FRAMEWORK_NAME": "{{ sigma-ui.name }}"
     },
     {{ #sigma-ui.docker-credentials }},
     "uris": [
