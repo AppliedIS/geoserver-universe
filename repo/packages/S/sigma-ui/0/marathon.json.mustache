@@ -1,12 +1,12 @@
 {
     "id": "/{{ sigma-ui.name }}",
-    "cpus": {{ sigma-ui.cpus }},
-    "mem": {{ sigma-ui.mem }},
+    "cpus": 1.0,
+    "mem": 1024.0,
     "instances": 1,
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "appliedis/sigma-ui",
+            "image": "{{ resource.assets.container.docker.sigma-ui }}",
             "forcePullImage": true,
             "network": "BRIDGE",
             "portMappings": [
@@ -29,15 +29,9 @@
         "ignoreHttp1xx": false
     }],
     "labels": {
-        "DCOS_PACKAGE_FRAMEWORK_NAME": "{{ sigma-ui.name }}",
-        "HAPROXY_0_VHOST": "{{ sigma-ui.name }}"
+        "DCOS_PACKAGE_FRAMEWORK_NAME": "{{ sigma-ui.name }}"
     },
     "env": {
         "FRAMEWORK_NAME": "{{ sigma-ui.name }}"
     }
-    {{ #sigma-ui.docker-credentials }},
-    "uris": [
-        "{{ sigma-ui.docker-credentials }}"
-    ]
-    {{ /sigma-ui.docker-credentials }}
 }
