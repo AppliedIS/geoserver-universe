@@ -17,21 +17,8 @@
             ]
         }
     },
-    "constraints": [["hostname", "UNIQUE"]],
-    "healthChecks": [{
-        "protocol": "HTTP",
-        "path": "/health/",
-        "portIndex": 0,
-        "gracePeriodSeconds": 300,
-        "intervalSeconds": 30,
-        "timeoutSeconds": 20,
-        "maxConsecutiveFailures": 3,
-        "ignoreHttp1xx": false
-    }],
     "labels": {
-        "DCOS_PACKAGE_FRAMEWORK_NAME": "{{ sigma-ui.name }}"
-    },
-    "env": {
-        "FRAMEWORK_NAME": "{{ sigma-ui.name }}"
+        "HAPROXY_GROUP": "internal,external",
+        "HAPROXY_0_VHOST": "{{ sigma-ui.host }}"
     }
 }
