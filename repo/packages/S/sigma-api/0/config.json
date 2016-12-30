@@ -1,6 +1,6 @@
 {
     "properties": {
-        "sigma": {
+        "sigma-api": {
             "type": "object",
             "description": "DC/OS service configuration properties",
             "required": [
@@ -11,8 +11,8 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The name of the cluster",
-                    "default": "sigma"
+                    "description": "The name of the service",
+                    "default": "sigma-api"
                 },
                 "docker-image": {
                     "type": "string",
@@ -24,12 +24,12 @@
                 },
                 "cpus": {
                     "type": "number",
-                    "description": "Number of CPU resources for each slave",
-                    "default": 0.2
+                    "description": "Number of CPU resources",
+                    "default": 0.5
                 },
                 "mem": {
                     "type": "number",
-                    "description": "Amount of memory for each slave",
+                    "description": "Amount of memory",
                     "default": 2048
                 },
                 "media-root": {

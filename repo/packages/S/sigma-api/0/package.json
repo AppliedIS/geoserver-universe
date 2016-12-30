@@ -1,12 +1,12 @@
 {
-    "name": "sigma",
+    "name": "sigma-api",
     "description": "API service for Sigma",
     "maintainer": "Applied Information Sciences",
     "version": "0.0.1",
     "packagingVersion": "2.0",
-    "scm": "https://github.com/appliedis/sigma.git",
-    "postInstallNotes": "Sigma has now been installed",
-    "postUninstallNotes": "Sigma has been uninstalled",
+    "scm": "https://github.com/appliedis/sigma-api.git",
+    "postInstallNotes": "Sigma API has now been installed",
+    "postUninstallNotes": "Sigma API has been uninstalled",
     "tags": [
         "bigdata",
         "hadoop",
