@@ -20,5 +20,35 @@
     "labels": {
         "HAPROXY_GROUP": "internal,external",
         "HAPROXY_0_VHOST": "{{ sigma-ui.host }}"
+    },
+    "env": {
+        {{ #app-info.title }}
+            "SIGMA_title": "{{ app-info.title }}",
+        {{ /app-info.title }}
+        {{ #app-info.logo }}
+            "SIGMA_logo": "{{ app-info.logo }}",
+        {{ /app-info.logo }}
+        {{ #app-urls.aggregate }}
+            "SIGMA_urls_aggregate": "{{ app-urls.aggregate }}",
+        {{ /app-urls.aggregate }}
+        {{ #app-urls.coverage }}
+            "SIGMA_urls_coverage": "{{ app-urls.coverage }}",
+        {{ /app-urls.coverage }}
+        {{ #app-urls.overlays }}
+            "SIGMA_urls_overlays": "{{ app-urls.overlays }}",
+        {{ /app-urls.overlays }}
+        {{ #app-urls.pointconverter }}
+            "SIGMA_urls_pointconverter": "{{ app-urls.pointconverter }}",
+        {{ /app-urls.pointconverter }}
+        {{ #app-urls.aoianalysis }}
+            "SIGMA_urls_aoianalysis": "{{ app-urls.aoianalysis }}",
+        {{ /app-urls.aoianalysis }}
+        {{ #app-urls.correlate }}
+            "SIGMA_urls_correlate": "{{ app-urls.correlate }}",
+        {{ /app-urls.correlate }}
+        {{ #app-urls.appstate }}
+            "SIGMA_urls_appState": "{{ app-urls.appstate }}",
+        {{ /app-urls.appstate }}
+        "FRAMEWORK_NAME": "{{ sigma-ui.name }}"
     }
 }
