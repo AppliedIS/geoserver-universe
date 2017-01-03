@@ -42,8 +42,7 @@
             "type": "object",
             "description": "Configuration for the Django app",
             "required": [
-                "secret_key",
-                "allowed_hosts"
+                "secret_key"
             ],
             "properties": {
                 "debug": {

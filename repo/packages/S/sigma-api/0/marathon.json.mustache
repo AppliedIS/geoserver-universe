@@ -50,7 +50,7 @@
         "FRAMEWORK_NAME": "{{ sigma-api.name }}",
         "SECRET_KEY": "{{ django.secret_key }}",
         "DEBUG": "{{ django.debug }}",
-        {{ django.allowed_hosts }}
+        {{ #django.allowed_hosts }}
             "ALLOWED_HOSTS": "{{ django.allowed_hosts }}",
         {{ /django.allowed_hosts }}
         "INTERNAL_IPS": "{{ django.internal_ips }}",
