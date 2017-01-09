@@ -21,7 +21,7 @@
                 }
             ],
             "volumes": [
-                {{ sigma-api.media-root }}
+                {{ #sigma-api.media-root }}
                 {
                     "containerPath": "/opt/sigma/public/media",
                     "hostPath": "{{ sigma-api.media-root }}",
