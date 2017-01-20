@@ -1,12 +1,12 @@
 {
-    "id": "/{{ eremetic.name }}",
-    "cpus": {{ eremetic.cpus }},
-    "mem": {{ eremetic.mem }},
+    "id": "/{{eremetic.name}}",
+    "cpus": {{eremetic.cpus}},
+    "mem": {{eremetic.mem}},
     "instances": 1,
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "{{ eremetic.docker-image }}",
+            "image": "{{eremetic.docker-image}}",
             "forcePullImage": true,
             "network": "BRIDGE",
             "portMappings": [
@@ -32,18 +32,18 @@
         "ignoreHttp1xx": false
     }],
     "labels": {
-        "DCOS_PACKAGE_FRAMEWORK_NAME": "{{ eremetic.name }}",
-        "HAPROXY_0_VHOST": "{{ eremetic.name }}"
+        "DCOS_PACKAGE_FRAMEWORK_NAME": "{{eremetic.name}}",
+        "HAPROXY_0_VHOST": "{{eremetic.name}}"
     },
     "env": {
-        "FRAMEWORK_NAME": "{{ eremetic.name }}",
+        "FRAMEWORK_NAME": "{{eremetic.name}}",
         "MASTER": "zk://master.mesos:2181",
         "ADDRESS": "0.0.0.0",
         "PORT": "8000"
     }
-    {{ #eremetic.docker-credentials }},
+    {{#eremetic.docker-credentials}},
     "uris": [
-        "{{ eremetic.docker-credentials }}"
+        "{{eremetic.docker-credentials}}"
     ]
-    {{ /eremetic.docker-credentials }}
+    {{/eremetic.docker-credentials}}
 }
