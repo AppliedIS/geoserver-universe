@@ -1,0 +1,41 @@
+{
+    "properties": {
+        "eremetic": {
+            "type": "object",
+            "description": "DC/OS service configuration properties",
+            "required": [
+                "name",
+                "cpus",
+                "mem",
+                "docker-image"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the service",
+                    "default": "eremetic"
+                },
+                "docker-image": {
+                    "type": "string",
+                    "description": "The repo and image to pull",
+                    "default": "alde/eremetic"
+                },
+                "docker-credentials": {
+                    "type": "string",
+                    "description": "URI to .dockercfg file with Docker credentials"
+                },
+                "cpus": {
+                    "type": "number",
+                    "description": "Number of CPU resources",
+                    "default": 0.2
+                },
+                "mem": {
+                    "type": "number",
+                    "description": "Amount of memory",
+                    "default": 100
+                }
+            }
+        }
+    },
+    "type": "object"
+}

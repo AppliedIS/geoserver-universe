@@ -1,0 +1,17 @@
+{
+    "name": "eremetic",
+    "description": "A Framework for Mesos to run one-off tasks in docker",
+    "maintainer": "Applied Information Sciences",
+    "version": "0.0.1",
+    "packagingVersion": "2.0",
+    "scm": "https://github.com/klarna/eremetic.git",
+    "postInstallNotes": "Eremetic has now been installed :)",
+    "postUninstallNotes": "Eremetic has been uninstalled :(",
+    "tags": [
+        "task",
+        "mesos",
+        "docker"
+    ],
+    "framework": true,
+    "selected": false
+}
