@@ -33,11 +33,14 @@
     }],
     "labels": {
         "DCOS_PACKAGE_FRAMEWORK_NAME": "{{eremetic.name}}",
-        "HAPROXY_0_VHOST": "{{eremetic.name}}"
+        "HAPROXY_0_VHOST": "{{eremetic.name}}",
+        "traefik.portIndex": "0"
     },
     "env": {
         "FRAMEWORK_NAME": "{{eremetic.name}}",
-        "MASTER": "zk://master.mesos:2181",
+        "MASTER": "zk://zk-1.zk:2181,zk-2.zk:2181,zk-3.zk:2181,zk-4.zk:2181,zk-5.zk:2181/mesos",
+        "DATABASE": "zk://zk-1.zk:2181,zk-2.zk:2181,zk-3.zk:2181,zk-4.zk:2181,zk-5.zk:2181/{{eremetic.name}}",
+        "LOGLEVEL": "{{eremetic.loglevel}}",
         "ADDRESS": "0.0.0.0",
         "PORT": "8000"
     }

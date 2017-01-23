@@ -7,7 +7,8 @@
                 "name",
                 "cpus",
                 "mem",
-                "docker-image"
+                "docker-image",
+                "loglevel"
             ],
             "properties": {
                 "name": {
@@ -33,6 +34,11 @@
                     "type": "number",
                     "description": "Amount of memory",
                     "default": 100
+                },
+                "loglevel": {
+                    "type": "string",
+                    "description": "Log level (DEBUG, INFO, WARN, ERROR, CRITICAL)",
+                    "default": "INFO"
                 }
             }
         }
