@@ -1,17 +1,17 @@
 {
-    "id": "/{{ sigma-api.name }}",
-    "cpus": {{ sigma-api.cpus }},
-    "mem": {{ sigma-api.mem }},
+    "id": "/{{sigma-api.name}}",
+    "cpus": {{sigma-api.cpus}},
+    "mem": {{sigma-api.mem}},
     "instances": 1,
     "container": {
         "type": "DOCKER",
         "docker": {
-            {{ #sigma-api.docker-image }}
-                "image": "{{ sigma-api.docker-image }}",
-            {{ /sigma-api.docker-image }}
-            {{ ^sigma-api.docker-image }}
-                "image": "{{ resource.assets.container.docker.sigma-api }}",
-            {{ /sigma-api.docker-image }}
+            {{#sigma-api.docker-image}}
+                "image": "{{sigma-api.docker-image}}",
+            {{/sigma-api.docker-image}}
+            {{^sigma-api.docker-image}}
+                "image": "{{resource.assets.container.docker.sigma-api}}",
+            {{/sigma-api.docker-image}}
             "forcePullImage": true,
             "network": "BRIDGE",
             "portMappings": [
@@ -21,13 +21,13 @@
                 }
             ],
             "volumes": [
-                {{ #sigma-api.media-root }}
+                {{#sigma-api.media-root}}
                 {
                     "containerPath": "/opt/sigma/public/media",
-                    "hostPath": "{{ sigma-api.media-root }}",
+                    "hostPath": "{{sigma-api.media-root}}",
                     "mode": "RW"
                 }
-                {{ /sigma-api.media-root }}
+                {{/sigma-api.media-root}}
             ]
         }
     },
@@ -43,47 +43,47 @@
         "ignoreHttp1xx": false
     }],
     "labels": {
-        "DCOS_PACKAGE_FRAMEWORK_NAME": "{{ sigma-api.name }}",
-        "HAPROXY_0_VHOST": "{{ sigma-api.name }}"
+        "DCOS_PACKAGE_FRAMEWORK_NAME": "{{sigma-api.name}}",
+        "HAPROXY_0_VHOST": "{{sigma-api.name}}"
     },
     "env": {
-        "FRAMEWORK_NAME": "{{ sigma-api.name }}",
-        "SECRET_KEY": "{{ django.secret_key }}",
-        "DEBUG": "{{ django.debug }}",
-        {{ #django.allowed_hosts }}
-            "ALLOWED_HOSTS": "{{ django.allowed_hosts }}",
-        {{ /django.allowed_hosts }}
-        "INTERNAL_IPS": "{{ django.internal_ips }}",
-        "CORS_ORIGIN_ALLOW_ALL": "{{ django.cors_original_allow_all }}",
-        "CORS_ORIGIN_WHITELIST": "{{ django.cors_origin_whitelist }}",
-        {{ #django.session_cookie_name }}
-            "SESSION_COOKIE_NAME": "{{ django.session_cookie_name }}",
-        {{ /django.session_cookie_name }}
-        {{ #django.logs_dir }}
-            "LOGS_DIR": "{{ django.logs_dir }}",
-        {{ /django.logs_dir }}
-        {{ #django.media_root }}
-            "MEDIA_ROOT": "{{ django.media_root }}",
-        {{ /django.media_root }}
-        "UWSGI_NUM_PROCESSES": "{{ deployment.uwsgi_num_processes }}",
-        "MEMCACHED_MAX_SIZE": "{{ deployment.memcached_max_size }}",
-        "MEMCACHED_MAX_ITEM_SIZE": "{{ deployment.memcached_max_item_size }}",
-        "PHOENIXDB_CONNECTION": "{{ services.phoenixdb_connection }}",
-        "PHOENIXDB_TABLE": "{{ services.phoenixdb_table }}",
-        {{ #services.livy_num_executors }}
-            "LIVY_NUM_EXECUTORS": "{{ services.livy_num_executors }}",
-        {{ /services.livy.num_executors }}
-        {{ #services.livy_executor_cores }}
-            "LIVY_EXECUTOR_CORES": "{{ services.livy_executor_cores }}",
-        {{ /services.livy_executor_cores }}
-        {{ #services.livy_driver_cores }}
-            "LIVY_DRIVER_CORES": "{{ services.livy_driver_cores }}",
-        {{ /services.livy_driver_cores }}
-        "LIVY_URL": "{{ services.livy_url }}"
+        "FRAMEWORK_NAME": "{{sigma-api.name}}",
+        "SECRET_KEY": "{{django.secret_key}}",
+        "DEBUG": "{{django.debug}}",
+        {{#django.allowed_hosts}}
+            "ALLOWED_HOSTS": "{{django.allowed_hosts}}",
+        {{/django.allowed_hosts}}
+        "INTERNAL_IPS": "{{django.internal_ips}}",
+        "CORS_ORIGIN_ALLOW_ALL": "{{django.cors_original_allow_all}}",
+        "CORS_ORIGIN_WHITELIST": "{{django.cors_origin_whitelist}}",
+        {{#django.session_cookie_name}}
+            "SESSION_COOKIE_NAME": "{{django.session_cookie_name}}",
+        {{/django.session_cookie_name}}
+        {{#django.logs_dir}}
+            "LOGS_DIR": "{{django.logs_dir}}",
+        {{/django.logs_dir}}
+        {{#django.media_root}}
+            "MEDIA_ROOT": "{{django.media_root}}",
+        {{/django.media_root}}
+        "UWSGI_NUM_PROCESSES": "{{deployment.uwsgi_num_processes}}",
+        "MEMCACHED_MAX_SIZE": "{{deployment.memcached_max_size}}",
+        "MEMCACHED_MAX_ITEM_SIZE": "{{deployment.memcached_max_item_size}}",
+        "PHOENIXDB_CONNECTION": "{{services.phoenixdb_connection}}",
+        "PHOENIXDB_TABLE": "{{services.phoenixdb_table}}",
+        {{#services.livy_num_executors}}
+            "LIVY_NUM_EXECUTORS": "{{services.livy_num_executors}}",
+        {{/services.livy.num_executors}}
+        {{#services.livy_executor_cores}}
+            "LIVY_EXECUTOR_CORES": "{{services.livy_executor_cores}}",
+        {{/services.livy_executor_cores}}
+        {{#services.livy_driver_cores}}
+            "LIVY_DRIVER_CORES": "{{services.livy_driver_cores}}",
+        {{/services.livy_driver_cores}}
+        "LIVY_URL": "{{services.livy_url}}"
     }
-    {{ #sigma-api.docker-credentials }},
+    {{#sigma-api.docker-credentials}},
     "uris": [
-        "{{ sigma-api.docker-credentials }}"
+        "{{sigma-api.docker-credentials}}"
     ]
-    {{ /sigma-api.docker-credentials }}
+    {{/sigma-api.docker-credentials}}
 }
