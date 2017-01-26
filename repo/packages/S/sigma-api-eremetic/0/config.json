@@ -1,0 +1,149 @@
+{
+    "properties": {
+        "sigma-api-eremetic": {
+            "type": "object",
+            "description": "DC/OS service configuration properties",
+            "required": [
+                "name",
+                "cpus",
+                "mem"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the service",
+                    "default": "sigma-api-eremetic"
+                },
+                "docker-image": {
+                    "type": "string",
+                    "description": "The repo and image to pull"
+                },
+                "docker-credentials": {
+                    "type": "string",
+                    "description": "URI to .dockercfg file with Docker credentials"
+                },
+                "cpus": {
+                    "type": "number",
+                    "description": "Number of CPU resources",
+                    "default": 0.5
+                },
+                "mem": {
+                    "type": "number",
+                    "description": "Amount of memory",
+                    "default": 2048
+                },
+                "media-root": {
+                    "type": "string",
+                    "description": "The external path for saving media files to (this should be writable by the Livy server)"
+                }
+            }
+        },
+        "django": {
+            "type": "object",
+            "description": "Configuration for the Django app",
+            "required": [
+                "secret_key"
+            ],
+            "properties": {
+                "debug": {
+                    "type": "boolean",
+                    "description": "Whether or not to run in DEBUG mode",
+                    "default": false
+                },
+                "secret_key": {
+                    "type": "string",
+                    "description": "The super SECRET_KEY used to sign sessions and validate passwords"
+                },
+                "allowed_hosts": {
+                    "type": "string",
+                    "description": "A comma-separated list of ALLOWED_HOSTS that can be served, used to protect against HTTP host header attacks (set to * to disable)"
+                },
+                "internal_ips": {
+                    "type": "string",
+                    "description": "A comma-separated list of INTERNAL_IPS, only useful when DEBUG=True"
+                },
+                "cors_original_allow_all": {
+                    "type": "boolean",
+                    "description": "Whether or not to allow all hosts to make cross-original HTTP requests",
+                    "default": false
+                },
+                "cors_origin_whitelist": {
+                    "type": "string",
+                    "description": "A comma-separated list of hosts allowed to make cross-site HTTP requests (ignored with allow_all is enabled)",
+                    "default": "localhost"
+                },
+                "session_cookie_name": {
+                    "type": "string",
+                    "description": "The name of the cookie used for sessions"
+                },
+                "logs_dir": {
+                    "type": "string",
+                    "description": "The path to the logs directory"
+                },
+                "media_root": {
+                    "type": "string",
+                    "description": "The path to the media directory"
+                }
+            }
+        },
+        "deployment": {
+            "type": "object",
+            "description": "Configuration for the app deployment",
+            "required": [
+                "uwsgi_num_processes",
+                "memcached_max_size",
+                "memcached_max_item_size"
+            ],
+            "properties": {
+                "uwsgi_num_processes": {
+                    "type": "number",
+                    "description": "Number of processes used by uWSGI",
+                    "default": 4
+                },
+                "memcached_max_size": {
+                    "type": "number",
+                    "description": "Maximum total size (in MB) used by memcached",
+                    "default": 1024
+                },
+                "memcached_max_item_size": {
+                    "type": "string",
+                    "description": "Maximum size used per cache entry in memcached (in string units)",
+                    "default": "1m"
+                }
+            }
+        },
+        "services": {
+            "type": "object",
+            "description": "Services used by the app",
+            "required": [
+                "phoenixdb_connection",
+                "phoenixdb_table",
+                "livy_url"
+            ],
+            "properties": {
+                "phoenixdb_connection": {
+                    "type": "string",
+                    "description": "A comma-separated list of full URLs to the Phoenix query servers (usually port 8765)"
+                },
+                "phoenixdb_table": {
+                    "type": "string",
+                    "description": "The name of the main table to use",
+                    "default": "SIGMA.MAIN"
+                },
+                "eremetic_url": {
+                    "type": "string",
+                    "description": "The full URL to the Erement server"
+                },
+                "eremetic_cpus": {
+                    "type": "number",
+                    "description": "The number of CPUs to use for Eremetic tasks"
+                },
+                "eremetic_mem": {
+                    "type": "number",
+                    "description": "The minimum amount of memory for Eremetic tasks"
+                }
+            }
+        }
+    },
+    "type": "object"
+}

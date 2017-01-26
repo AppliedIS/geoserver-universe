@@ -498,6 +498,24 @@
       }
     },
     {
+      "currentVersion":"0.0.1",
+      "description":"API service for Sigma using Eremetic",
+      "framework":true,
+      "name":"sigma-api-eremetic",
+      "selected":false,
+      "tags":[
+        "bigdata",
+        "hadoop",
+        "hdfs",
+        "hbase",
+        "phoenix",
+        "eremetic"
+      ],
+      "versions":{
+        "0.0.1":"0"
+      }
+    },
+    {
       "currentVersion":"1.6.0",
       "description":"Spark is a fast and general cluster computing system for Big Data",
       "framework":true,

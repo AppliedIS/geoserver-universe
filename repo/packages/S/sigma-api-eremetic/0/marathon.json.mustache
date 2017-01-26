@@ -1,0 +1,95 @@
+{
+    "id": "/{{sigma-api-eremetic.name}}",
+    "cpus": {{sigma-api-eremetic.cpus}},
+    "mem": {{sigma-api-eremetic.mem}},
+    "instances": 1,
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            {{#sigma-api-eremetic.docker-image}}
+                "image": "{{sigma-api-eremetic.docker-image}}",
+            {{/sigma-api-eremetic.docker-image}}
+            {{^sigma-api-eremetic.docker-image}}
+                "image": "{{resource.assets.container.docker.sigma-api-eremetic}}",
+            {{/sigma-api-eremetic.docker-image}}
+            "forcePullImage": true,
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 0
+                }
+            ],
+            "volumes": [
+                {{#sigma-api-eremetic.media-root}}
+                {
+                    "containerPath": "/opt/sigma/public/media",
+                    "hostPath": "{{sigma-api-eremetic.media-root}}",
+                    "mode": "RW"
+                }
+                {{/sigma-api-eremetic.media-root}}
+            ]
+        }
+    },
+    "constraints": [["hostname", "UNIQUE"]],
+    "healthChecks": [{
+        "protocol": "HTTP",
+        "path": "/health/",
+        "portIndex": 0,
+        "gracePeriodSeconds": 300,
+        "intervalSeconds": 30,
+        "timeoutSeconds": 20,
+        "maxConsecutiveFailures": 3,
+        "ignoreHttp1xx": false
+    }],
+    "labels": {
+        "DCOS_PACKAGE_FRAMEWORK_NAME": "{{sigma-api-eremetic.name}}",
+        "HAPROXY_0_VHOST": "{{sigma-api-eremetic.name}}"
+    },
+    "env": {
+        "FRAMEWORK_NAME": "{{sigma-api-eremetic.name}}",
+        "SECRET_KEY": "{{django.secret_key}}",
+        "DEBUG": "{{django.debug}}",
+        {{#django.allowed_hosts}}
+            "ALLOWED_HOSTS": "{{django.allowed_hosts}}",
+        {{/django.allowed_hosts}}
+        "INTERNAL_IPS": "{{django.internal_ips}}",
+        "CORS_ORIGIN_ALLOW_ALL": "{{django.cors_original_allow_all}}",
+        "CORS_ORIGIN_WHITELIST": "{{django.cors_origin_whitelist}}",
+        {{#django.session_cookie_name}}
+            "SESSION_COOKIE_NAME": "{{django.session_cookie_name}}",
+        {{/django.session_cookie_name}}
+        {{#django.logs_dir}}
+            "LOGS_DIR": "{{django.logs_dir}}",
+        {{/django.logs_dir}}
+        {{#django.media_root}}
+            "MEDIA_ROOT": "{{django.media_root}}",
+        {{/django.media_root}}
+        "UWSGI_NUM_PROCESSES": "{{deployment.uwsgi_num_processes}}",
+        "MEMCACHED_MAX_SIZE": "{{deployment.memcached_max_size}}",
+        "MEMCACHED_MAX_ITEM_SIZE": "{{deployment.memcached_max_item_size}}",
+        "PHOENIXDB_CONNECTION": "{{services.phoenixdb_connection}}",
+        "PHOENIXDB_TABLE": "{{services.phoenixdb_table}}",
+        {{#services.eremetic_url}}
+            "USE_EREMETIC": "true",
+        {{/services.eremetic_url}}
+        {{#sigma-api-eremetic.docker-image}}
+            "EREMETIC_IMAGE": "{{sigma-api-eremetic.docker-image}}",
+        {{/sigma-api-eremetic.docker-image}}
+        {{^sigma-api-eremetic.docker-image}}
+            "EREMETIC_IMAGE": "{{resource.assets.container.docker.sigma-api-eremetic}}",
+        {{/sigma-api-eremetic.docker-image}}
+        {{#services.eremetic_cpus}}
+            "EREMETIC_CPUS": "{{services.eremetic_cpus}}",
+        {{/services.eremetic_cpus}}
+        {{#services.eremetic_mem}}
+            "EREMETIC_MEMORY": "{{services.eremetic_mem}}",
+        {{/services.eremetic_men}}
+        "EREMETIC_URL": "{{services.eremetic_url}}"
+    }
+    {{#sigma-api-eremetic.docker-credentials}},
+    "uris": [
+        "{{sigma-api-eremetic.docker-credentials}}"
+    ]
+    {{/sigma-api-eremetic.docker-credentials}}
+}
