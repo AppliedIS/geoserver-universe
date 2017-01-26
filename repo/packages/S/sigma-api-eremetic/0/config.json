@@ -76,10 +76,6 @@
                     "type": "string",
                     "description": "The name of the cookie used for sessions"
                 },
-                "logs_dir": {
-                    "type": "string",
-                    "description": "The path to the logs directory"
-                },
                 "media_root": {
                     "type": "string",
                     "description": "The path to the media directory"
