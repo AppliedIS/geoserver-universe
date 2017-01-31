@@ -18,6 +18,9 @@
                 {
                     "containerPort": 80,
                     "hostPort": 0
+                }, {
+                    "containerPort": 9000,
+                    "hostPort": 0
                 }
             ],
             "volumes": [
@@ -68,6 +71,9 @@
         "MEMCACHED_MAX_ITEM_SIZE": "{{deployment.memcached_max_item_size}}",
         "PHOENIXDB_CONNECTION": "{{services.phoenixdb_connection}}",
         "PHOENIXDB_TABLE": "{{services.phoenixdb_table}}",
+        "SUPERVISOR_INET_ENABLE": "{{deployment.supervisor_inet_enable}}",
+        "SUPERVISOR_INET_USERNAME": "{{deployment.supervisor_inet_username}}",
+        "SUPERVISOR_INET_PASSWORD": "{{deployment.supervisor_inet_password}}",
         {{#services.eremetic_url}}
             "USE_EREMETIC": "true",
         {{/services.eremetic_url}}

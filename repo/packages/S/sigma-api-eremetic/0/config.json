@@ -105,6 +105,19 @@
                     "type": "string",
                     "description": "Maximum size used per cache entry in memcached (in string units)",
                     "default": "1m"
+                },
+                "supervisor_inet_enable": {
+                    "type": "boolean",
+                    "description": "Enable the Supervisor UI",
+                    "default": false
+                },
+                "supervisor_inet_username": {
+                    "type": "string",
+                    "description": "An optional username for the Supervisor UI"
+                },
+                "supervisor_inet_password": {
+                    "type": "string",
+                    "description": "An optional password for the Supervisor UI"
                 }
             }
         },
