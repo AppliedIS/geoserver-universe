@@ -89,6 +89,9 @@
         {{#services.eremetic_mem}}
             "EREMETIC_MEMORY": "{{services.eremetic_mem}}",
         {{/services.eremetic_men}}
+        {{#sigma-api-eremetic.docker-credentials}}
+            "EREMETIC_CREDENTIALS": "{{sigma-api-eremetic.docker-credentials}}",
+        {{/sigma-api-eremetic.docker-credentials}}
         "EREMETIC_URL": "{{services.eremetic_url}}"
     }
     {{#sigma-api-eremetic.docker-credentials}},
