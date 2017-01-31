@@ -25,7 +25,7 @@
                 "cpus": {
                     "type": "number",
                     "description": "Number of CPU resources",
-                    "default": 0.5
+                    "default": 1.0
                 },
                 "mem": {
                     "type": "number",
@@ -126,8 +126,7 @@
             "description": "Services used by the app",
             "required": [
                 "phoenixdb_connection",
-                "phoenixdb_table",
-                "livy_url"
+                "phoenixdb_table"
             ],
             "properties": {
                 "phoenixdb_connection": {
