@@ -93,15 +93,7 @@
             "EREMETIC_CREDENTIALS": "{{sigma-api-eremetic.docker-credentials}}",
         {{/sigma-api-eremetic.docker-credentials}}
         "EREMETIC_URL": "{{services.eremetic_url}}",
-        "EREMETIC_VOLUMES": "[
-            {{#sigma-api-eremetic.media-root}}
-            {
-                \"containerPath\": \"/opt/sigma/public/media\",
-                \"hostPath\": \"{{sigma-api-eremetic.media-root}}\",
-                \"mode\": \"RW\"
-            }
-            {{/sigma-api-eremetic.media-root}}
-        ]"
+        "EREMETIC_VOLUMES": "[{{#sigma-api-eremetic.media-root}}{\"containerPath\": \"/opt/sigma/public/media\", \"hostPath\": \"{{sigma-api-eremetic.media-root}}\", \"mode\": \"RW\"}{{/sigma-api-eremetic.media-root}}]"
     }
     {{#sigma-api-eremetic.docker-credentials}},
     "uris": [
