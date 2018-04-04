@@ -202,6 +202,10 @@ def enumerate_dcos_packages(
                     key = (package_json['name'], package_json['version'])
                     if key in pending_packages:
                         pending_packages.remove(key)
+                    key = (key[0], 'latest')
+                    if key in pending_packages:
+                        pending_packages.remove(key)
+                        
 
                     yield (
                         package_json['name'],
@@ -247,7 +251,9 @@ def selected_check(package_json, packages, only_selected, is_latest):
     """Return true when:
     1) The package is selected, "only_selected" is true and it is the latest
        package.
-    2) The package name and version matches one of the tuples in "packages"
+    2) The package name is listed alone with a version 'latest' and it is the 
+       latest package
+    3) The package name and version matches one of the tuples in "packages"
     """
     package_name = package_json['name']
     package_version = package_json['version']
@@ -255,6 +261,9 @@ def selected_check(package_json, packages, only_selected, is_latest):
     if only_selected:
         return is_latest and package_json.get('selected', False)
 
+    if (package_name, 'latest') in packages:
+        return is_latest
+    
     return (package_name, package_version) in packages
 
 
